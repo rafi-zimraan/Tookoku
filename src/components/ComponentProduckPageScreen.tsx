@@ -5,13 +5,15 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {RootStackParams} from '../App';
 import {Hitam, Primary, Putih} from '../utils/Color';
+import {ScrollView} from 'react-native/Libraries/Components/ScrollView/ScrollView';
 
 const ComponentProduckPageScreen = () => {
-  const navigaton = useNavigation<NativeStackNavigationProp<RootStackParams>>();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <View style={styles.ContainerNavbar}>
       <View style={styles.Container}>
-        <TouchableOpacity onPress={() => navigaton.navigate('Categories')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Categories')}>
           <Icon name="keyboard-backspace" size={30} color={Hitam} />
         </TouchableOpacity>
         <TouchableOpacity>
@@ -35,7 +37,8 @@ const ComponentProduckPageScreen = () => {
         </View>
         <Text style={styles.txt3}>Rs. 1,299</Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('PageProduckDetailed')}>
         <View style={styles.ContentBottom}>
           <Text style={styles.txtBottom}>Add to cart</Text>
         </View>
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
   },
   Model: {
     left: 29,
-    height: 580,
+    height: 529,
     width: 385,
     right: 20,
   },

@@ -11,6 +11,11 @@ import HomeScreenFull from './screens/HomeScreenFull';
 import ProduckPageScreen from './screens/ProduckPageScreen';
 import ProduckPageDetailed from './screens/ProduckPageDetailed';
 import LoveProduck from './screens/LoveProduck';
+import ComponentProduckPageScreen from './components/ComponentProduckPageScreen';
+import ComponentProduckPageDetailed from './components/ComponentProduckPageDetailed';
+import ComponentLoveProduck from './components/ComponentLoveProduck';
+import CheckOutscreen from './screens/CheckOutscreen';
+import ComponentCheckoutScreen from './components/ComponentCheckoutScreen';
 
 export type RootStackParams = {
   Splash: undefined;
@@ -20,11 +25,13 @@ export type RootStackParams = {
   Produck: undefined;
   Categories: undefined;
   PageProduck: undefined;
+  PageProduckDetailed: undefined;
+  CheackOut: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParams>();
 
 export default function App() {
-  // return <HomeScreenFull />;
+  // return <CheckOutscreen />;
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -61,6 +68,16 @@ export default function App() {
         <Stack.Screen
           name="PageProduck"
           component={ProduckPageScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="PageProduckDetailed"
+          component={ComponentProduckPageDetailed}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CheackOut"
+          component={ComponentCheckoutScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

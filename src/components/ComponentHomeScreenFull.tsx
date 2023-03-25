@@ -12,6 +12,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParams} from '../App';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {AbuAbu, Hitam, Primary, Putih} from '../utils/Color';
+import {ScrollView} from 'react-native/Libraries/Components/ScrollView/ScrollView';
 
 export default function ComponentHomeScreenFull() {
   const navigation =

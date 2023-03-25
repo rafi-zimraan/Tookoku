@@ -1,13 +1,18 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {RootStackParams} from '../App';
 import {Hitam, Primary, Putih} from '../utils/Color';
 
 const ComponentProduckPageDetailed = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
-    <View>
+    <View style={{paddingBottom: 40}}>
       <View style={styles.Container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('PageProduck')}>
           <Icon name="keyboard-backspace" size={30} color={Hitam} />
         </TouchableOpacity>
         <TouchableOpacity>
@@ -40,7 +45,7 @@ const ComponentProduckPageDetailed = () => {
           AJIO to explore the latest in high street fashion.
         </Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('CheackOut')}>
         <View style={styles.ContentBottom}>
           <Text style={styles.txtBottom}>Add to cart</Text>
         </View>
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: 400,
-    height: 410,
+    height: 390,
     left: 16,
     top: 10,
   },
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
   },
   txt: {
     color: Hitam,
-    top: 60,
+    top: 57,
     left: 9,
   },
   ContentBottom: {
@@ -100,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 68,
-    top: 79,
+    top: 69,
   },
   txtBottom: {
     fontFamily: 'Poppins-Medium',

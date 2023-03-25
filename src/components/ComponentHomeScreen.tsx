@@ -19,37 +19,37 @@ const ComponentHomeScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
-    <View style={styles.ContainerHome}>
-      <View style={styles.ContainerIcon}>
-        <View style={styles.IconNavbar}>
-          <TouchableOpacity>
-            <Icon name="menu" size={36} color={Hitam} />
-          </TouchableOpacity>
+    <ScrollView
+      showsHorizontalScrollIndicator={false}
+      scrollToOverflowEnabled={false}>
+      <View style={styles.ContainerHome}>
+        <View style={styles.ContainerIcon}>
+          <View style={styles.IconNavbar}>
+            <TouchableOpacity>
+              <Icon name="menu" size={36} color={Hitam} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.IconNavbar2}>
+            <Text style={styles.TxtIcon}>Tookoku</Text>
+          </View>
+          <View style={styles.IconNavbar3}>
+            <TouchableOpacity>
+              <Icon name="bell-badge-outline" size={36} color={Primary} />
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.IconNavbar2}>
-          <Text style={styles.TxtIcon}>Tookoku</Text>
+        <View style={styles.Makiko}>
+          <Icon name="magnify" size={46} color={Hitam} style={styles.Icon} />
+          <TextInput
+            placeholder="Search for tshirts, jeans, shorts, jackets"
+            style={styles.Search}
+          />
         </View>
-        <View style={styles.IconNavbar3}>
-          <TouchableOpacity>
-            <Icon name="bell-badge-outline" size={36} color={Primary} />
-          </TouchableOpacity>
+        <FotoProduck />
+        <View style={styles.TxtStatement}>
+          <Text style={styles.Statement1}>Recommended</Text>
+          <Text style={styles.Statement2}>See all</Text>
         </View>
-      </View>
-      <View style={styles.Makiko}>
-        <Icon name="magnify" size={46} color={Hitam} style={styles.Icon} />
-        <TextInput
-          placeholder="Search for tshirts, jeans, shorts, jackets"
-          style={styles.Search}
-        />
-      </View>
-      <FotoProduck />
-      <View style={styles.TxtStatement}>
-        <Text style={styles.Statement1}>Recommended</Text>
-        <Text style={styles.Statement2}>See all</Text>
-      </View>
-      <ScrollView
-        showsHorizontalScrollIndicator={false}
-        scrollToOverflowEnabled={false}>
         <View style={styles.ContainerNavbar}>
           <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.navigate('Produck')}>
@@ -82,8 +82,72 @@ const ComponentHomeScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
-      </ScrollView>
-    </View>
+        <View style={styles.ContainerNavbar}>
+          <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Produck')}>
+              <Image source={require('../assets/image/orang1.png')} />
+              <TouchableOpacity>
+                <Icon
+                  name="heart"
+                  size={20}
+                  color={Primary}
+                  style={styles.iconLove}
+                />
+              </TouchableOpacity>
+              <Text style={styles.txt1}>Olive Zip-Front Jacket</Text>
+              <Text style={styles.txt}>Rs. 3,499</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Produck')}>
+              <Image source={require('../assets/image/celana.png')} />
+              <TouchableOpacity>
+                <Icon
+                  name="heart"
+                  size={20}
+                  color={Primary}
+                  style={styles.iconLove}
+                />
+              </TouchableOpacity>
+              <Text style={styles.txt1}>FILA Men’s shorts</Text>
+              <Text style={styles.txt}>Rs. 3,499</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={styles.ContainerNavbar}>
+          <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Produck')}>
+              <Image source={require('../assets/image/orang1.png')} />
+              <TouchableOpacity>
+                <Icon
+                  name="heart"
+                  size={20}
+                  color={Primary}
+                  style={styles.iconLove}
+                />
+              </TouchableOpacity>
+              <Text style={styles.txt1}>Olive Zip-Front Jacket</Text>
+              <Text style={styles.txt}>Rs. 3,499</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.container}>
+            <TouchableOpacity onPress={() => navigation.navigate('Produck')}>
+              <Image source={require('../assets/image/celana.png')} />
+              <TouchableOpacity>
+                <Icon
+                  name="heart"
+                  size={20}
+                  color={Primary}
+                  style={styles.iconLove}
+                />
+              </TouchableOpacity>
+              <Text style={styles.txt1}>FILA Men’s shorts</Text>
+              <Text style={styles.txt}>Rs. 3,499</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -165,21 +229,21 @@ const styles = StyleSheet.create({
   ContainerNavbar: {
     flexDirection: 'row',
     height: 350,
-    top: 120,
+    top: 130,
   },
   container: {
     flexDirection: 'column',
-    marginTop: -20,
     left: 30,
+    // marginVertical: 20,
   },
   iconLove: {
     borderRadius: 20,
+    backgroundColor: Putih,
     padding: 4.5,
-    top: -170,
-    left: 140,
     height: 28.5,
     width: 28.5,
-    backgroundColor: Putih,
+    left: 140,
+    top: -170,
   },
   txt: {
     color: 'black',

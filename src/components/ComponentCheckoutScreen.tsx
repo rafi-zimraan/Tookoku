@@ -1,25 +1,27 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Hitam, Primary, Putih} from '../utils/Color';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {ScrollView} from 'react-native/Libraries/Components/ScrollView/ScrollView';
-import {AbuAbu, Hitam, Primary, Putih} from '../utils/Color';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParams} from '../App';
 
-const ComponentLoveProduck = () => {
+export default function ComponentCheckoutScreen() {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParams>>();
   return (
     <View>
       <View style={styles.ContainerIcon}>
         <View style={styles.IconNavbar}>
           <TouchableOpacity>
-            <Icon name="menu" size={36} color={Hitam} />
+            <Icon name="arrow-left" size={36} color={Hitam} />
           </TouchableOpacity>
         </View>
         <View style={styles.IconNavbar2}>
-          <Text style={styles.TxtIcon}>Favourites</Text>
+          <Text style={styles.TxtIcon}>Cart</Text>
         </View>
         <View style={styles.IconNavbar3}>
-          <TouchableOpacity>
-            <Icon name="magnify" size={36} color={Hitam} />
-          </TouchableOpacity>
+          <Icon name="magnify" size={36} color={Hitam} />
         </View>
       </View>
       <View>
@@ -44,10 +46,10 @@ const ComponentLoveProduck = () => {
         </View>
         <View style={styles.ContentLove2}>
           <Image
-            source={require('../assets/image/orangJaket.jpg')}
+            source={require('../assets/image/Kacamata.png')}
             style={styles.img}
           />
-          <Text style={styles.txtLove}>Black Zipper</Text>
+          <Text style={styles.txtLove}>Olive Zip-Front Jacket</Text>
           <Text style={styles.txtLove2}>Rs. 3,499</Text>
           <Text style={styles.txtLove3}>4.5/5</Text>
           <Image
@@ -66,7 +68,7 @@ const ComponentLoveProduck = () => {
             source={require('../assets/image/celana.png')}
             style={styles.img}
           />
-          <Text style={styles.txtLove}>FILA Men’s Grey Shorts</Text>
+          <Text style={styles.txtLove}>Olive Zip-Front Jacket</Text>
           <Text style={styles.txtLove2}>Rs. 3,499</Text>
           <Text style={styles.txtLove3}>4.5/5</Text>
           <Image
@@ -81,42 +83,29 @@ const ComponentLoveProduck = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.Perintah}>
-        <View style={styles.garis} />
-        <Text style={styles.txtPerintah}>Add more to the list</Text>
-        <View style={styles.garis2} />
+      <View>
+        <View style={styles.txtHarga}>
+          <Text style={styles.harga1}>Subtotal:</Text>
+          <Text style={styles.harga1}>Rs. 6,027.00</Text>
+        </View>
+        <View style={styles.txtHarga}>
+          <Text style={styles.harga1}>Shipping:</Text>
+          <Text style={styles.harga1}>Rs. 100.00</Text>
+        </View>
+        <View style={styles.txtHargaEnd}>
+          <Text style={styles.txtEnd}>Total Price:</Text>
+          <Text style={styles.txtEndCenter}>(3 items)</Text>
+          <Text style={styles.txtEnd}>Rs. 6,127.00</Text>
+        </View>
       </View>
-      <View style={styles.Bottom}>
-        <Image
-          source={require('../assets/image/Kacamata.png')}
-          style={styles.BottomLove}
-        />
-        <Image
-          source={require('../assets/image/stell.png')}
-          style={styles.BottomLove2}
-        />
-        <TouchableOpacity>
-          <Icon
-            name="heart"
-            size={20}
-            color={Primary}
-            style={styles.iconLove}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon
-            name="heart"
-            size={20}
-            color={Primary}
-            style={styles.iconLove2}
-          />
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity>
+        <View style={styles.ContentBottom}>
+          <Text style={styles.txtBottom}>Checkout</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
-};
-
-export default ComponentLoveProduck;
+}
 
 const styles = StyleSheet.create({
   ContainerIcon: {
@@ -131,8 +120,8 @@ const styles = StyleSheet.create({
   },
   IconNavbar2: {
     justifyContent: 'center',
-    right: 47,
-    top: -10,
+    right: 27,
+    top: 5,
   },
   TxtIcon: {
     fontSize: 24,
@@ -140,7 +129,7 @@ const styles = StyleSheet.create({
     color: Hitam,
   },
   IconNavbar3: {
-    left: 42,
+    left: 110,
     top: 5,
   },
   ContentLove: {
@@ -189,83 +178,62 @@ const styles = StyleSheet.create({
   },
   ContentLove2: {
     backgroundColor: Putih,
-    marginVertical: 100,
     borderRadius: 18,
+    bottom: 83,
     elevation: 8,
     width: 397,
-    height: 139,
-    bottom: 189,
+    height: 133,
     left: 20,
   },
   ContentLove3: {
     backgroundColor: Putih,
     borderRadius: 18,
+    bottom: 67,
     elevation: 8,
     width: 397,
-    height: 139,
-    bottom: 279,
+    height: 133,
     left: 20,
   },
-  Perintah: {
-    position: 'absolute',
-    top: 628,
+  txtHarga: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+    top: -40,
+    margin: 7,
   },
-  garis: {
-    backgroundColor: AbuAbu,
-    borderWitdh: 1.5,
-    left: 50,
-    width: 40,
-    height: 2,
-    bottom: 62,
+  harga1: {
+    fontSize: 15,
   },
-  txtPerintah: {
-    marginHorizontal: 110,
-    fontFamily: 'Poppins-SemiBold',
-    marginVertical: -79,
+  txtHargaEnd: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+    top: -34,
+  },
+  txtEnd: {
     color: Hitam,
-    fontSize: 21,
+    fontSize: 19,
+    fontWeight: '800',
   },
-  garis2: {
-    backgroundColor: AbuAbu,
-    borderWitdh: 1.5,
-    left: 345,
-    width: 40,
-    height: 2,
-    bottom: -59,
+  txtEndCenter: {
+    fontSize: 14,
+    fontWeight: '800',
+    left: 57,
+    bottom: -3,
   },
-  Bottom: {
-    position: 'absolute',
-    left: 18,
-  },
-  BottomLove: {
-    position: 'absolute',
-    marginVertical: 588,
-    borderRadius: 10,
-    width: 200,
-  },
-  BottomLove2: {
-    position: 'absolute',
-    marginVertical: 588,
-    borderRadius: 10,
-    width: 200,
-    left: 209,
-  },
-  iconLove: {
-    backgroundColor: Putih,
+  ContentBottom: {
+    backgroundColor: Primary,
+    marginHorizontal: 20,
     borderRadius: 20,
-    padding: 4.5,
-    top: 599,
-    left: 150,
-    height: 28.5,
-    width: 28.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 68,
+    bottom: 25,
   },
-  iconLove2: {
-    backgroundColor: Putih,
-    borderRadius: 20,
-    padding: 4.5,
-    top: 576,
-    left: 360,
-    height: 28.5,
-    width: 28.5,
+  txtBottom: {
+    fontFamily: 'Poppins-Medium',
+    fontSize: 16,
+    fontWeight: '600',
+    color: Putih,
   },
 });
