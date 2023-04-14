@@ -1,8 +1,7 @@
-import {StyleSheet} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import LoveProduck from './LoveProduck';
-import KeranjangProduck from '../components/KeranjangProduck';
+import KeranjangProduck from './KeranjangProduck';
 import HomeScreen from './HomeScreen';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -41,5 +40,3 @@ const BottomTabScreen = () => {
 };
 
 export default BottomTabScreen;
-
-const styles = StyleSheet.create({});
